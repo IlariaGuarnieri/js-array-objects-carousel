@@ -94,17 +94,27 @@ const imagesWrapper = document.querySelector(".my-carousel-images");
 const thumbnailsWrapper = document.querySelector(".my-thumbnails-wrapper");
 
 images.forEach((image)=>{
-  imagesWrapper.innerHTML += createTemplateImages(image);
-  thumbnailsWrapper.innerHTML += createTemplateThumbnails(image);
+  imagesWrapper.innerHTML += createTempImages(image);
+  thumbnailsWrapper.innerHTML += createTempThumbnails(image);
 });
+
+//Inserimento degli elementi creati in collection
+let counterImages = 0;
+const imagesCollection = document.querySelectorAll(".my-carousel-item");
+imagesCollection[counterImages].classList.add("active");
+
+const thumbnailsCollection = document.querySelectorAll(".my-thumbnail");
+thumbnailsCollection[counterImages].classList.add("active");
 
 
 // faccio si che al click cambi immagine e thumbnails
-// creo le costanti necessarie ad avanzare ed arretrare
+// creo le costanti (vedi bottoni css) necessarie ad avanzare ed arretrare
 const btnPrev = document.querySelector(".my-previous");
 const btnNext = document.querySelector(".my-next");
 
+// vedi funzione
 btnNext.addEventListener('click', goNext);
+// vedi funzione
 btnPrev.addEventListener('click', goPrev);
 
 // 1. creo la costante per il bottone play
@@ -112,7 +122,6 @@ const btnPlayAuto = document.getElementById("my-btn-autoplay");
 let isAutoplay = false;
 let autoplay;
 let directionNext = true;
-let counterImages = 0;
 // logica cambio immagine con playauto
 btnPlayAuto.innerHTML = 'start' + '' + 'autoplay';
 
@@ -133,10 +142,10 @@ btnPlayAuto.addEventListener("click", () => {
 
 
 // FUNZIONI//
-createTemplateThumbnails();
-createTemplateImages();
+createTempThumbnails();
+createTempImages();
 
-function createTemplateImages(imgElement) {
+function createTempImages(imgElement) {
   return `
   <div class="my-carousel-item">
     <img
@@ -152,7 +161,7 @@ function createTemplateImages(imgElement) {
   `;
 }
 
-function createTemplateThumbnails(thumbElement) {
+function createTempThumbnails(thumbElement) {
   return `
   <div class="my-thumbnail">
     <img
@@ -165,6 +174,27 @@ function createTemplateThumbnails(thumbElement) {
 }
 
 
+function goNext() {
+  changeActiveStatus(counterImages);
+  counterImages === images.length - 1 ? (counterImages = 0) : counterImages++;
+  changeActiveStatus(counterImages);
+}
+
+function goPrev() {
+  changeActiveStatus(counterImages);
+  counterImages === 0 ? (counterImages = images.length - 1) : counterImages--;
+  changeActiveStatus(counterImages);
+}
+
+function changeActiveStatus(counter) {
+  imagesCollection[counter].classList.toggle("active");
+  thumbnailsCollection[counter].classList.toggle("active");
+}
+
+
+function directionAutoplay() {
+  directionNext ? goNext() : goPrev();
+}
 
 
 
