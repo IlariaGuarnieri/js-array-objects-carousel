@@ -51,6 +51,41 @@ const images = [
 
 const output = document.getElementById('output');
 
-output.innerHTML+= `
-prova
-`
+//alt="${images[i].title} da rivedere dopo
+/* output.innerHTML+= `
+<div class="my-carousel-item active">
+    <img class="img-fluid" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg"  picture">
+    <div class="item-description px-3">
+        <h2>Svezia</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.</p>
+    </div>
+</div>
+` */
+
+
+//1. ciclo che stampa in console.log tutti gli oggetti. ATTENZIONE in questo ciclo ci reriamo agli oggetti con l'elemento dell'array in posizione (i-esima) perso tutto insieme
+
+//2. ne fai un altro ciclo che stampa solo il titolo in console.log di tutti gli ooggetti
+
+//3. fai u altro ciclo che stampa in div #output SOLO IL TITOLO DEGLI OGGETTI <div>titolo</div> deve essere quello dell'immagine
+
+// inserimento dei dati
+// gestione di active
+
+
+// 1. 
+images.forEach((images)=>{
+  console.log(images)
+})
+
+// 2.
+images.forEach((images)=>{
+  console.log(images.title)
+})
+
+// 3.
+images.forEach((images)=>{
+  output.innerHTML +=`
+  ${images.title}
+  `
+})
