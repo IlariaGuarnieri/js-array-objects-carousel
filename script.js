@@ -115,7 +115,7 @@ images.forEach( (images, index) => {
   //   if (primaimmagine){
 
   //   }
-  }
+  
 
   output.innerHTML +=`
   <div class="my-carousel-item ${classToAdd}">
