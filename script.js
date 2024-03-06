@@ -92,18 +92,33 @@ images.forEach((images)=>{
 
 // inserisco il blocco html 
 // position in forEach javascript -->google
-images.forEach( (images,index) => {
-
-  //console.log(index);
-
-  if(images.url === images[0]){
-    console.log('active')
+images.forEach( (images, index) => {
+  // console.log(index);
+  let classToAdd = '';
+  if(index === 0){
+    classToAdd = 'active';
   }else{
-    console.log('non active')
+    classToAdd = 'my-carousel-item';
+  }
+
+
+
+  
+  // if(i=0, images.url === images[0], i++){
+  //   console.log('active')
+  // }else{
+  //   console.log('non active')
+  // }
+
+  // if(i=0 images.length > 0 i++){
+  //   const primaimmagine = images[0];
+  //   if (primaimmagine){
+
+  //   }
   }
 
   output.innerHTML +=`
-  <div class="my-carousel-item active">
+  <div class="my-carousel-item ${classToAdd}">
   <img class="img-fluid" src="${images.url}"  picture">
   <div class="item-description px-3">
       <h2>${images.title}</h2>
