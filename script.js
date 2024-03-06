@@ -1,3 +1,4 @@
+// array con oggetti
 const images = [
     {
         url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
@@ -30,37 +31,12 @@ const images = [
 
 // MILESTONE 0
 // inserisco la prima img grande con js
-
-/*
-
-<div class="my-carousel-item active">
-    <img class="img-fluid" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="${images[i].title} picture">
-    <div class="item-description px-3">
-        <h2>Svezia</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.</p>
-    </div>
-</div>
-
-<div> prova </div>
-
-*/
-
 //salvo output in una variabile (costante o no)
-
 //stampi tramite output il valore "<div>prova</div>"
 
-const output = document.getElementById('output');
 
 //alt="${images[i].title} da rivedere dopo
-/* output.innerHTML+= `
-<div class="my-carousel-item active">
-    <img class="img-fluid" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg"  picture">
-    <div class="item-description px-3">
-        <h2>Svezia</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.</p>
-    </div>
-</div>
-` */
+
 
 
 //1. ciclo che stampa in console.log tutti gli oggetti. ATTENZIONE in questo ciclo ci reriamo agli oggetti con l'elemento dell'array in posizione (i-esima) perso tutto insieme
@@ -74,22 +50,23 @@ const output = document.getElementById('output');
 
 
 // 1. 
-images.forEach((images)=>{
-  console.log(images)
-})
+// images.forEach((images)=>{
+//   console.log(images)
+// })
 
 // 2.
-images.forEach((images)=>{
-  console.log(images.title)
-})
+// images.forEach((images)=>{
+//   console.log(images.title)
+// })
 
 // 3.
-images.forEach((images)=>{
+// images.forEach((images)=>{
   // output.innerHTML +=`
   // ${images.title}
   // `
-})
+// })
 
+const output = document.getElementById('output');
 // inserisco il blocco html 
 // position in forEach javascript -->google
 images.forEach( (images, index) => {
@@ -111,6 +88,40 @@ images.forEach( (images, index) => {
   `
 })
 
+// inserimento img carosello
+// 1.creo la costante riferita alla mia class html
+const imagesWrapper = document.querySelector(".my-carousel-images");
+images.forEach((image)=>{
+  imagesWrapper.innerHTML
+})
+
+// faccio si che al click cambi immagine e thumbnails
+// creo la costante bottone play
+const btnPlayAuto = document.getElementById("my-btn-autoplay");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 // A = [4,5,10,1]
 
 //0 [4] y
@@ -133,4 +144,4 @@ images.forEach( (images, index) => {
 //0 [1] --> a[0] // è già al suo posto
 //1 [5]
 //2 [10]
-//3 [4] --> ??
+//3 [4] --> ?? */}
