@@ -76,7 +76,7 @@ images.forEach( (images, index) => {
   if(index === 0){
     classToAdd = 'active';
   }
-
+// stampo 
   output.innerHTML +=`
   <div class="my-carousel-item ${classToAdd}">
   <img class="img-fluid" src="${images.url}"  picture">
@@ -89,17 +89,80 @@ images.forEach( (images, index) => {
 })
 
 // inserimento img carosello
-// 1.creo la costante riferita alla mia class html
+// 1.creo la costante della mia class html
 const imagesWrapper = document.querySelector(".my-carousel-images");
+const thumbnailsWrapper = document.querySelector(".my-thumbnails-wrapper");
+
 images.forEach((image)=>{
-  imagesWrapper.innerHTML
-})
+  imagesWrapper.innerHTML += createTemplateImages(image);
+  thumbnailsWrapper.innerHTML += createTemplateThumbnails(image);
+});
+
 
 // faccio si che al click cambi immagine e thumbnails
-// creo la costante bottone play
+// creo le costanti necessarie ad avanzare ed arretrare
+const btnPrev = document.querySelector(".my-previous");
+const btnNext = document.querySelector(".my-next");
+
+btnNext.addEventListener('click', goNext);
+btnPrev.addEventListener('click', goPrev);
+
+// 1. creo la costante per il bottone play
 const btnPlayAuto = document.getElementById("my-btn-autoplay");
+let isAutoplay = false;
+let autoplay;
+let directionNext = true;
+let counterImages = 0;
+// logica cambio immagine con playauto
+btnPlayAuto.innerHTML = 'start' + '' + 'autoplay';
+
+btnPlayAuto.addEventListener("click", () => {
+  console.log("Autoplay prima: ", isAutoplay);
+  if (isAutoplay === false) {
+    autoplay = setInterval(directionAutoplay, 3000);
+    isAutoplay = true;
+    btnPlayAuto.innerHTML = "Stop" + " " + "autoplay";
+  } else if (isAutoplay === true) {
+    clearInterval(autoplay);
+    isAutoplay = false;
+    btnPlayAuto.innerHTML = "Start" + " " + "autoplay";
+  }
+  console.log("Autoplay dopo: ", isAutoplay);
+});
 
 
+
+// FUNZIONI//
+createTemplateThumbnails();
+createTemplateImages();
+
+function createTemplateImages(imgElement) {
+  return `
+  <div class="my-carousel-item">
+    <img
+      class="img-fluid"
+      src="${imgElement.url}"
+      alt="${imgElement.title} picture"
+    />
+    <div class="item-description px-3">
+      <h2>${imgElement.title}</h2>
+      <p>${imgElement.description}</p>
+    </div>
+  </div>
+  `;
+}
+
+function createTemplateThumbnails(thumbElement) {
+  return `
+  <div class="my-thumbnail">
+    <img
+      class="img-fluid"
+      src="${thumbElement.url}"
+      alt="Thumbnail of ${thumbElement.title} picture"
+    />
+  </div>
+  `;
+}
 
 
 
@@ -144,4 +207,4 @@ const btnPlayAuto = document.getElementById("my-btn-autoplay");
 //0 [1] --> a[0] // è già al suo posto
 //1 [5]
 //2 [10]
-//3 [4] --> ?? */}
+//3 [4] --> ?? */
