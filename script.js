@@ -95,27 +95,10 @@ images.forEach((images)=>{
 images.forEach( (images, index) => {
   // console.log(index);
   let classToAdd = '';
+
   if(index === 0){
     classToAdd = 'active';
-  }else{
-    classToAdd = 'my-carousel-item';
   }
-
-
-
-  
-  // if(i=0, images.url === images[0], i++){
-  //   console.log('active')
-  // }else{
-  //   console.log('non active')
-  // }
-
-  // if(i=0 images.length > 0 i++){
-  //   const primaimmagine = images[0];
-  //   if (primaimmagine){
-
-  //   }
-  
 
   output.innerHTML +=`
   <div class="my-carousel-item ${classToAdd}">
@@ -128,3 +111,26 @@ images.forEach( (images, index) => {
   `
 })
 
+// A = [4,5,10,1]
+
+//0 [4] y
+//1 [5]
+//2 [10]
+//3 [1] x
+
+//capire la tecnica la strategia
+//partiamo da A[3] == 1
+//perchè 1 è il più piccolo
+//ciclo-> 
+// SE A[3] < A[0]
+// -->  variabile = valore;
+//  --> temp = A[0] --> temp = 4 | a[0] = 4
+//  --> A[0] = A[3] --> temp = 4 | a[0] = 1 | a[3] = 1
+//  --> a[3] = temp
+ //
+
+// temp = 4
+//0 [1] --> a[0] // è già al suo posto
+//1 [5]
+//2 [10]
+//3 [4] --> ??
