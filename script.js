@@ -85,7 +85,20 @@ images.forEach((images)=>{
 
 // 3.
 images.forEach((images)=>{
+  // output.innerHTML +=`
+  // ${images.title}
+  // `
+})
+
+// inserisco il blocco html 
+images.forEach((images)=>{
   output.innerHTML +=`
-  ${images.title}
+  <div class="my-carousel-item active">
+  <img class="img-fluid" src="${images.url}"  picture">
+  <div class="item-description px-3">
+      <h2>${images.title}</h2>
+      <p>${images.description}</p>
+  </div>
+</div>
   `
 })
