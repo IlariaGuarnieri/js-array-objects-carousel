@@ -91,7 +91,17 @@ images.forEach((images)=>{
 })
 
 // inserisco il blocco html 
-images.forEach((images)=>{
+// position in forEach javascript -->google
+images.forEach( (images,index) => {
+
+  //console.log(index);
+
+  if(images.url === images[0]){
+    console.log('active')
+  }else{
+    console.log('non active')
+  }
+
   output.innerHTML +=`
   <div class="my-carousel-item active">
   <img class="img-fluid" src="${images.url}"  picture">
