@@ -1,32 +1,32 @@
 // array con oggetti
 const images = [
-    {
-        url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
-        title: 'Svezia',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
-    },
+  {
+    url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
+    title: 'Svezia',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
+  },
 
-    {
-        url: 'https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg',
-        title: 'Perù',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
-    },
+  {
+    url: 'https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg',
+    title: 'Perù',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
+  },
 
-    {
-        url: 'https://img.itinari.com/pages/images/original/0d3ed180-d22d-48e8-84df-19c4d888b41f-62-crop.jpg?ch=DPR&dpr=2.625&w=1600&s=7ebd4b5a9e045f41b4e0c7c75d298d6c',
-        title: 'Chile',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
-    },
-    {
-        url: 'https://static1.evcdn.net/images/reduction/1583177_w-1920_h-1080_q-70_m-crop.jpg',
-        title: 'Argentina',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
-    },
-    {
-        url: 'https://cdn.sanity.io/images/24oxpx4s/prod/ed09eff0362396772ad50ec3bfb728d332eb1c30-3200x2125.jpg?w=1600&h=1063&fit=crop',
-        title: 'Colombia',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
-    },
+  {
+    url: 'https://img.itinari.com/pages/images/original/0d3ed180-d22d-48e8-84df-19c4d888b41f-62-crop.jpg?ch=DPR&dpr=2.625&w=1600&s=7ebd4b5a9e045f41b4e0c7c75d298d6c',
+    title: 'Chile',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
+  },
+  {
+    url: 'https://static1.evcdn.net/images/reduction/1583177_w-1920_h-1080_q-70_m-crop.jpg',
+    title: 'Argentina',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
+  },
+  {
+    url: 'https://cdn.sanity.io/images/24oxpx4s/prod/ed09eff0362396772ad50ec3bfb728d332eb1c30-3200x2125.jpg?w=1600&h=1063&fit=crop',
+    title: 'Colombia',
+    description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
+  },
 ];
 
 // MILESTONE 0
@@ -61,23 +61,23 @@ const images = [
 
 // 3.
 // images.forEach((images)=>{
-  // output.innerHTML +=`
-  // ${images.title}
-  // `
+// output.innerHTML +=`
+// ${images.title}
+// `
 // })
 
 const output = document.getElementById('output');
 // inserisco il blocco html 
 // position in forEach javascript -->google
-images.forEach( (images, index) => {
+images.forEach((images, index) => {
   // console.log(index);
   let classToAdd = '';
 
-  if(index === 0){
+  if (index === 0) {
     classToAdd = 'active';
   }
-// stampo 
-  output.innerHTML +=`
+  // stampo 
+  output.innerHTML += `
   <div class="my-carousel-item ${classToAdd}">
   <img class="img-fluid" src="${images.url}"  picture">
   <div class="item-description px-3">
@@ -93,7 +93,7 @@ images.forEach( (images, index) => {
 const imagesWrapper = document.querySelector(".my-carousel-images");
 const thumbnailsWrapper = document.querySelector(".my-thumbnails-wrapper");
 
-images.forEach((image)=>{
+images.forEach((image) => {
   imagesWrapper.innerHTML += createTempImages(image);
   thumbnailsWrapper.innerHTML += createTempThumbnails(image);
 });
@@ -109,41 +109,17 @@ thumbnailsCollection[counterImages].classList.add("active");
 
 // faccio si che al click cambi immagine e thumbnails
 // creo le costanti (vedi bottoni css) necessarie ad avanzare ed arretrare
-const btnPrev = document.querySelector(".my-previous");
 const btnNext = document.querySelector(".my-next");
 
 // vedi funzione
 btnNext.addEventListener('click', goNext);
-// vedi funzione
-btnPrev.addEventListener('click', goPrev);
 
-// 1. creo la costante per il bottone play
-const btnPlayAuto = document.getElementById("my-btn-autoplay");
-let isAutoplay = false;
-let autoplay;
-let directionNext = true;
-// logica cambio immagine con playauto
-btnPlayAuto.innerHTML = 'start' + '' + 'autoplay';
 
-btnPlayAuto.addEventListener("click", () => {
-  console.log("Autoplay prima: ", isAutoplay);
-  if (isAutoplay === false) {
-    autoplay = setInterval(directionAutoplay, 3000);
-    isAutoplay = true;
-    btnPlayAuto.innerHTML = "Stop" + " " + "autoplay";
-  } else if (isAutoplay === true) {
-    clearInterval(autoplay);
-    isAutoplay = false;
-    btnPlayAuto.innerHTML = "Start" + " " + "autoplay";
-  }
-  console.log("Autoplay dopo: ", isAutoplay);
-});
+
 
 
 
 // FUNZIONI//
-createTempThumbnails();
-createTempImages();
 
 function createTempImages(imgElement) {
   return `
@@ -173,16 +149,9 @@ function createTempThumbnails(thumbElement) {
   `;
 }
 
-
 function goNext() {
   changeActiveStatus(counterImages);
   counterImages === images.length - 1 ? (counterImages = 0) : counterImages++;
-  changeActiveStatus(counterImages);
-}
-
-function goPrev() {
-  changeActiveStatus(counterImages);
-  counterImages === 0 ? (counterImages = images.length - 1) : counterImages--;
   changeActiveStatus(counterImages);
 }
 
@@ -190,12 +159,6 @@ function changeActiveStatus(counter) {
   imagesCollection[counter].classList.toggle("active");
   thumbnailsCollection[counter].classList.toggle("active");
 }
-
-
-function directionAutoplay() {
-  directionNext ? goNext() : goPrev();
-}
-
 
 
 
